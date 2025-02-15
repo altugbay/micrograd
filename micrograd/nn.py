@@ -1,5 +1,5 @@
 import random
-from micrograd.engine import Value
+from engine import Value
 
 class Module:
 
@@ -13,7 +13,7 @@ class Module:
 class Neuron(Module):
 
     def __init__(self, nin, nonlin=True):
-        self.w = [Value(random.uniform(-1,1)) for _ in range(nin)]
+        self.w = [Value(random.uniform(-1,1), label=f"w{index}") for index in range(nin)]
         self.b = Value(0)
         self.nonlin = nonlin
 
